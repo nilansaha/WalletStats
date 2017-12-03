@@ -1,0 +1,24 @@
+<html>
+<script>
+function httpGet(theUrl)
+{
+var xmlHttp = new XMLHttpRequest();
+xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+xmlHttp.send( null );
+return xmlHttp.responseText;
+}
+url = "https://blockchain.info/rawaddr/15QxEW1WQzx3BxSnixyqLHWKHSyhed5r3K";
+parameters = "?limit=2";
+url = url + parameters;
+
+response = httpGet(url)
+response = JSON.parse(response)
+finalBalance = response['final_balance']
+totalReceived = response['total_received']
+totalSent = response['total_sent']
+console.log(response);
+console.log(finalBalance);
+console.log(totalReceived)
+console.log(totalSent);
+</script>
+</html>
